@@ -6,7 +6,7 @@
 ## **Lesson 1: Basics for python in Rhino**
 ---
 
-- Theory: Creating a 
+- Theory: Basic introduction into Deep Learning and Machine Learning
 - Setting up the environment and installing software
 - Basic data types
 - Loops and arrays
