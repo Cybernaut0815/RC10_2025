@@ -20,7 +20,7 @@ Continue here...
 - Theory: Pixels, Voxels, Arrays and Tensors
 - More in depth introduction to using multidimensional arrays
 - Game of live
-- Basic Wave Function Collapse algorithm
+- Basic Wave Function Collapse algorithm [Not implemented]
 
 Continue here...
 
@@ -29,20 +29,20 @@ Continue here...
 ---
 
 - Theory: Basics in LLMs usage and graph data
-- Connectivity graphs
-- Basic analytics
-- RAG (retrieval augmented Generation) on a large dataset
-- MCP connection with a dataset and to Voxels in Rhino 
+- Connectivity graphs  [Not implemented]
+- Basic analytics  [Not implemented]
+- RAG (retrieval augmented Generation) on a large dataset  [Not implemented]
+- MCP connection with a dataset and to Voxels in Rhino   [Not implemented]
 
 Continue here...
 
 ## **Lesson 4: Training a basic diffusion model**
 ---
 
-- Theory: basics in diffusion models
-- Setting up the dataset
-- Creating a neural network
-- Training the model
-- Showing a result in Rhino
+- Theory: basics in diffusion models 
+- Setting up the dataset  [Needs update]
+- Creating a neural network  [Needs update]
+- Training the model  [Needs update]
+- Showing a result in Rhino  [Needs update]
 
 Continue here...
