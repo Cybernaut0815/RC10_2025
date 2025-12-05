@@ -1,0 +1,172 @@
+{
+    "Tile0": 
+    {
+    "connections": 
+        {
+        "top": "A",
+        "right": "A",
+        "bottom": "A",
+        "left": "A"
+        }
+    },
+    "Tile1_A": 
+    {
+    "connections": 
+        {
+            "top": "B",
+            "right": "C1",
+            "bottom": "A",
+            "left": "C2"
+        }
+    },
+    "Tile1_B": 
+    {
+    "connections": 
+        {
+            "top": "C2",
+            "right": "B",
+            "bottom": "C1",
+            "left": "A"
+        }
+    },
+    "Tile1_C": 
+    {
+    "connections": 
+        {
+            "top": "A",
+            "right": "C2",
+            "bottom": "B",
+            "left": "C1"
+        }
+    },
+    "Tile1_D": 
+    {
+    "connections": 
+        {
+            "top": "C1",
+            "right": "A",
+            "bottom": "C2",
+            "left": "B"
+        }
+    },
+    "Tile2_A": 
+    {
+    "connections": 
+        {
+            "top": "D",
+            "right": "C1",
+            "bottom": "A",
+            "left": "C2"
+        }
+    },
+    "Tile2_B": 
+    {
+    "connections": 
+        {
+            "top": "C2",
+            "right": "D",
+            "bottom": "C1",
+            "left": "A"
+        }
+    },
+    "Tile2_C": 
+    {
+    "connections": 
+        {
+            "top": "A",
+            "right": "C2",
+            "bottom": "D",
+            "left": "C1"
+        }
+    },
+    "Tile2_D": 
+    {
+    "connections": 
+        {
+            "top": "C1",
+            "right": "A",
+            "bottom": "C2",
+            "left": "D"
+        }
+    },
+    "Tile3_A": 
+    {
+    "connections": 
+        {
+            "top": "D",
+            "right": "C1",
+            "bottom": "C2",
+            "left": "D"
+        }
+    },
+    "Tile3_B": 
+    {
+    "connections": 
+        {
+            "top": "D",
+            "right": "D",
+            "bottom": "C1",
+            "left": "C2"
+        }
+    },
+    "Tile3_C": 
+    {
+    "connections": 
+        {
+            "top": "C2",
+            "right": "D",
+            "bottom": "D",
+            "left": "C1"
+        }
+    },
+    "Tile3_D": 
+    {
+    "connections": 
+        {
+            "top": "C1",
+            "right": "C2",
+            "bottom": "D",
+            "left": "D"
+        }
+    },
+    "Tile4_A": 
+    {
+    "connections": 
+        {
+            "top": "C1",
+            "right": "A",
+            "bottom": "A",
+            "left": "C2"
+        }
+    },
+    "Tile4_B": 
+    {
+    "connections": 
+        {
+            "top": "C2",
+            "right": "C1",
+            "bottom": "A",
+            "left": "A"
+        }
+    },
+    "Tile4_C": 
+    {
+    "connections": 
+        {
+            "top": "A",
+            "right": "C2",
+            "bottom": "C1",
+            "left": "A"
+        }
+    },
+    "Tile4_D": 
+    {
+    "connections": 
+        {
+            "top": "A",
+            "right": "A",
+            "bottom": "C2",
+            "left": "C1"
+        }
+    }
+}
