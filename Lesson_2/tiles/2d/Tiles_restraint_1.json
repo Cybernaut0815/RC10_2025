@@ -1,53 +1,23 @@
 {
     "Tiles": {
+        "Tile0_O": 
+        {
+        "connections": 
+            {
+            "top": "D",
+            "right": "D",
+            "bottom": "D",
+            "left": "D"
+            }
+        },
         "Tile0": 
         {
         "connections": 
             {
-            "top": "A1",
-            "right": "A1",
-            "bottom": "A1",
-            "left": "A1"
-            }
-        },
-        "Tile1_A": 
-        {
-        "connections": 
-            {
-                "top": "B",
-                "right": "C1",
-                "bottom": "A2",
-                "left": "C2"
-            }
-        },
-        "Tile1_B": 
-        {
-        "connections": 
-            {
-                "top": "C2",
-                "right": "B",
-                "bottom": "C1",
-                "left": "A2"
-            }
-        },
-        "Tile1_C": 
-        {
-        "connections": 
-            {
-                "top": "A2",
-                "right": "C2",
-                "bottom": "B",
-                "left": "C1"
-            }
-        },
-        "Tile1_D": 
-        {
-        "connections": 
-            {
-                "top": "C1",
-                "right": "A2",
-                "bottom": "C2",
-                "left": "B"
+            "top": "A",
+            "right": "A",
+            "bottom": "A",
+            "left": "A"
             }
         },
         "Tile2_A": 
@@ -56,7 +26,7 @@
             {
                 "top": "D",
                 "right": "C1",
-                "bottom": "A2",
+                "bottom": "A",
                 "left": "C2"
             }
         },
@@ -67,14 +37,14 @@
                 "top": "C2",
                 "right": "D",
                 "bottom": "C1",
-                "left": "A2"
+                "left": "A"
             }
         },
         "Tile2_C": 
         {
         "connections": 
             {
-                "top": "A2",
+                "top": "A",
                 "right": "C2",
                 "bottom": "D",
                 "left": "C1"
@@ -85,7 +55,7 @@
         "connections": 
             {
                 "top": "C1",
-                "right": "A2",
+                "right": "A",
                 "bottom": "C2",
                 "left": "D"
             }
@@ -129,15 +99,55 @@
                 "bottom": "D",
                 "left": "D"
             }
+        },
+        "Tile4_A": 
+        {
+        "connections": 
+            {
+                "top": "C3",
+                "right": "A",
+                "bottom": "A",
+                "left": "C4"
+            }
+        },
+        "Tile4_B": 
+        {
+        "connections": 
+            {
+                "top": "C4",
+                "right": "C3",
+                "bottom": "A",
+                "left": "A"
+            }
+        },
+        "Tile4_C": 
+        {
+        "connections": 
+            {
+                "top": "A",
+                "right": "C4",
+                "bottom": "C3",
+                "left": "A"
+            }
+        },
+        "Tile4_D": 
+        {
+        "connections": 
+            {
+                "top": "A",
+                "right": "A",
+                "bottom": "C4",
+                "left": "C3"
+            }
         }
     },
     "Connections":
     {   
-        "A1": ["A1"],
-        "A2": ["A2"],
-        "B": ["B"],
-        "C1": ["C2"],
-        "C2": ["C1"],
+        "A": ["A"],
+        "C1": ["C2", "C4"],
+        "C2": ["C1", "C3"],
+        "C3": ["C2"],
+        "C4": ["C1"],
         "D": ["D"]
     }
 }

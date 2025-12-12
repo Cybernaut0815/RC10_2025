@@ -13,9 +13,9 @@ states until "observed" (collapsed), at which point they influence their neighbo
 """
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
 import os, json, random
 
+from external_imports.WFC_Graphs import create_connectivity_graph, visualize_connectivity_graphs
 
 
 class Tile:
@@ -74,6 +74,8 @@ class Grid:
         self.possible = [[all_indices.copy() for _ in range(self.cols)] for _ in range(self.rows)]
         self.collapsed = [[False] * self.cols for _ in range(self.rows)]
         self.result = [[None] * self.cols for _ in range(self.rows)]  # Final tile assignments
+        self.has_contradiction = False  # Track if WFC encountered a contradiction
+        self.is_finished = False  # Track if WFC completed successfully
 
 
     def set_tile(self, r, c, tile_name):
@@ -189,9 +191,16 @@ class Grid:
         """One WFC iteration: find lowest entropy cell, collapse it, propagate."""
         cell = self.get_min_entropy_cell()
         if cell is None:
+            self.is_finished = True
             return False
-        r, c = cell
-        return self.collapse(r, c) and self.propagate(r, c)
+        # Type narrowing: cell is a tuple (r, c) at this point
+        r, c = cell  # pyright: ignore[reportGeneralTypeIssues]
+        success = self.collapse(r, c) and self.propagate(r, c)
+        if not success:
+            self.has_contradiction = True
+        if self.is_complete():
+            self.is_finished = True
+        return success
 
 
     
@@ -216,20 +225,43 @@ class Grid:
                     brightness = len(self.possible[r][c]) / len(self.tiles) * 0.5 + 0.25
                     img[y:y+tile_size, x:x+tile_size] = brightness
         return img
+    
+    def visualize(self, figsize=(8, 8)):
+        """
+        Display a static image of the current grid state.
+        
+        Args:
+            figsize: Figure size tuple (width, height)
+        """
+        _, ax = plt.subplots(figsize=figsize)
+        ax.imshow(self.get_image())
+        ax.axis('off')
+        
+        collapsed = sum(sum(row) for row in self.collapsed)
+        if self.has_contradiction:
+            ax.set_title('WFC - Contradiction! (unsolvable state)')
+        elif self.is_finished:
+            ax.set_title(f'Wave Function Collapse - Complete ({collapsed}/{self.rows * self.cols} cells)')
+        else:
+            ax.set_title(f'Wave Function Collapse - {collapsed}/{self.rows * self.cols} cells')
+        
+        plt.show()
 
 
 
-def run_wfc(grid_size=(10, 10), steps_per_frame=50, tiles_file='Tiles.json', predefined=None):
+def run_wfc(grid_size=(10, 10), tiles_file='Tiles.json', predefined=None):
     """
-    Run and visualize Wave Function Collapse.
+    Run Wave Function Collapse algorithm.
     
     Args:
         grid_size: (rows, cols) tuple for grid dimensions
-        steps_per_frame: How many cells to collapse per animation frame
         tiles_file: JSON file with tile definitions and connection rules
         predefined: List of (row, col, tile_name) tuples for pre-placed tiles
                    These tiles are fixed before WFC runs and guide the generation.
                    Example: [(0, 0, 'Tile1_A'), (5, 5, 'Tile2_B')]
+    
+    Returns:
+        Grid object with results stored in grid.result and execution status
     """
     # Load tile definitions
     path = os.path.join(os.path.dirname(__file__), 'tiles', '2d', tiles_file)
@@ -245,44 +277,28 @@ def run_wfc(grid_size=(10, 10), steps_per_frame=50, tiles_file='Tiles.json', pre
         if not grid.set_tiles(predefined):
             print("Warning: Some predefined tiles caused contradictions!")
     
-    # Setup visualization
-    fig, ax = plt.subplots(figsize=(8, 8))
-    img_display = ax.imshow(grid.get_image())
-    ax.axis('off')
-    
-    def animate(_):
-        for _ in range(steps_per_frame):
-            if grid.is_complete():
-                break
-            if not grid.step():
-                ax.set_title('WFC - Contradiction! (unsolvable state)')
-                break
-        img_display.set_data(grid.get_image())
-        collapsed = sum(sum(row) for row in grid.collapsed)
-        ax.set_title(f'Wave Function Collapse - {collapsed}/{grid.rows * grid.cols} cells')
-        return [img_display]
-    
-    _ = FuncAnimation(fig, animate, frames=grid.rows * grid.cols // steps_per_frame + 10, interval=1, blit=True)
-    plt.show()
+    # Run WFC until complete or contradiction
+    while not grid.is_complete() and not grid.has_contradiction:
+        if not grid.step():
+            break
     
     return grid
-
 
 
 if __name__ == "__main__":
     
     seeds = []
     
-    size = 64
-    use_boundary = False
+    for i in range(12):
+        seeds.append((i, 0, 'Tile0_O'))
+        seeds.append((i, 11, 'Tile0_O'))
+        seeds.append((0, i, 'Tile0_O'))
+        seeds.append((11, i, 'Tile0_O'))
     
-    if use_boundary:
-        for i in range(size):
-            seeds.append((i, 0, 'Tile0_O'))
-            seeds.append((i, size - 1, 'Tile0_O'))
-            seeds.append((0, i, 'Tile0_O'))
-            seeds.append((size - 1, i, 'Tile0_O'))
+    # Run WFC logic
+    grid = run_wfc(grid_size=(12, 12), tiles_file='Tiles_restraint_1.json', predefined=seeds)
+    tile_graph, island_graph = create_connectivity_graph(grid, exclude_connections=['D'], exclude_tiles=['Tile0_O'], search_connections=['D'])
     
-        run_wfc(grid_size=(size, size), steps_per_frame=100, tiles_file='Tiles_restraint_2.json', predefined=seeds)
-    else:
-        run_wfc(grid_size=(size, size), steps_per_frame=100, tiles_file='Tiles.json', predefined=seeds)
+    # Visualize the results (combined visualization)
+    visualize_connectivity_graphs(tile_graph, island_graph, grid)
+    

@@ -1,0 +1,104 @@
+{
+    "Tiles": {
+        "Tile0": 
+        {
+        "connections": 
+            {
+            "top": "A0",
+            "right": "A0",
+            "bottom": "A0",
+            "left": "A0"
+            }
+        },
+        "Tile2_A": 
+        {
+        "connections": 
+            {
+                "top": "D",
+                "right": "C1_A",
+                "bottom": "A1",
+                "left": "C2_A"
+            }
+        },
+        "Tile2_B": 
+        {
+        "connections": 
+            {
+                "top": "C2_A",
+                "right": "D",
+                "bottom": "C1_A",
+                "left": "A1"
+            }
+        },
+        "Tile2_C": 
+        {
+        "connections": 
+            {
+                "top": "A1",
+                "right": "C2_A",
+                "bottom": "D",
+                "left": "C1_A"
+            }
+        },
+        "Tile2_D": 
+        {
+        "connections": 
+            {
+                "top": "C1_A",
+                "right": "A1",
+                "bottom": "C2_A",
+                "left": "D"
+            }
+        },
+        "Tile3_A": 
+        {
+        "connections": 
+            {
+                "top": "D",
+                "right": "C1_B",
+                "bottom": "C2_B",
+                "left": "D"
+            }
+        },
+        "Tile3_B": 
+        {
+        "connections": 
+            {
+                "top": "D",
+                "right": "D",
+                "bottom": "C1_B",
+                "left": "C2_B"
+            }
+        },
+        "Tile3_C": 
+        {
+        "connections": 
+            {
+                "top": "C2_B",
+                "right": "D",
+                "bottom": "D",
+                "left": "C1_B"
+            }
+        },
+        "Tile3_D": 
+        {
+        "connections": 
+            {
+                "top": "C1_B",
+                "right": "C2_B",
+                "bottom": "D",
+                "left": "D"
+            }
+        }
+    },
+    "Connections":
+    {   
+        "A0": ["A1", "A0"],
+        "A1": ["A0"],
+        "C1_A": ["C2_B", "C2_A"],
+        "C2_A": ["C1_B", "C1_A"],
+        "C1_B": ["C2_A"],
+        "C2_B": ["C1_A"],
+        "D": ["D"]
+    }
+}
