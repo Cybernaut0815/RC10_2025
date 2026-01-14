@@ -25,6 +25,8 @@ The the skill module repo for programming basics on procedural algorithms and AI
 ## **Lesson 3: LLM & MCP interaction with architectural voxel data - connectivity graphs & analytics**
 ---
 
+continue here...
+
 - Theory: Basics in LLMs usage and graph data
 - Connectivity graphs  [Not implemented]
 - Basic analytics  [Not implemented]
