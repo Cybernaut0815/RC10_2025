@@ -12,3 +12,4 @@ chromadb
 pypdf
 ipykernel
 huggingface_hub
+jq
