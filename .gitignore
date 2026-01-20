@@ -4,3 +4,11 @@ __pycache__/
 
 *.blend1
 *.blend
+
+*.env
+*/documents
+
+*/db
+*/rPlan_extraction
+*/dataset
+*/descriptions
