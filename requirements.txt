@@ -1,3 +1,15 @@
 numpy
 matplotlib
 networkx
+shapely
+opencv-python
+langchain
+langchain_core
+langchain_openai
+python-dotenv
+langchain-community
+chromadb
+pypdf
+ipykernel
+huggingface_hub
+jq
