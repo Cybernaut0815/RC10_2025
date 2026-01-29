@@ -85,14 +85,15 @@ pip install -r requirements.txt
 continue here...
 
 - Theory: Basics in LLMs usage and graph data
-- Connectivity graphs  [Not implemented]
-- Basic analytics  [Not implemented]
-- RAG (retrieval augmented Generation) on a large dataset  [Not implemented]
-- MCP connection with a dataset and to Voxels in Rhino   [Not implemented]
+- Connectivity graphs
+- Basic analytics
+- RAG (retrieval augmented Generation) on a large dataset
+
 
 ## **Lesson 4: Training a basic diffusion model**
 ---
 
+- MCP connection with a dataset and to Voxels in Rhino   [Not implemented]
 - Theory: basics in diffusion models 
 - Setting up the dataset  [Needs update]
 - Creating a neural network  [Needs update]

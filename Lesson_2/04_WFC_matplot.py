@@ -124,7 +124,7 @@ class Grid:
         return True
 
 
-
+    # Core logic
     def get_min_entropy_cell(self):
         """Find uncollapsed cell with fewest possibilities (most constrained)."""
         best, best_entropy = [], float('inf')
@@ -273,8 +273,8 @@ if __name__ == "__main__":
     
     seeds = []
     
-    size = 64
-    use_boundary = False
+    size = 32
+    use_boundary = True
     
     if use_boundary:
         for i in range(size):
